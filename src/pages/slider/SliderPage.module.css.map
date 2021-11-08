@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AASA,AACE,cADY,CACZ,GAAG,CAAC;EACF,aAAa,EAAE,IAAI;CACpB;;AAHH,AAIE,cAJY,CAIZ,kBAAkB,CAAC,YAAY,CAAC;EAC9B,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "SliderPage.module.scss"
+    ],
+    "names": [],
+    "file": "SliderPage.module.css"
+}

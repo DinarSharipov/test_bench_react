@@ -1,48 +1,76 @@
-import React from "react";
+// import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import classes from "./SliderPage.module.scss";
 
-export default function SimpleSlider() {
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-  };
+// export default function SimpleSlider() {
+//   const settings = {
+//     dots: false,
+//     infinite: true,
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     speed: 2000,
+//     autoplaySpeed: 2000,
+//     cssEase: "linear",
+//   };
 
-  let array = new Array(100).fill();
+//   let array = new Array(100).fill();
 
-  return (
-    <Slider {...settings} className={classes.slider}>
-      {array.map((item, index) => {
-        return (
-          <div>
-            <img src={`./images/${index + 1}.jpg`} alt="photo" />
-          </div>
-        );
-      })}
+//   return (
+//     <div className={classes.sliderWrapper}>
+//       <Slider {...settings} className={classes.slider}>
+//         {array.map((item, index) => {
+//           return <img src={`./images/${index + 1}.jpg`} alt="photo" />;
+//         })}
+//       </Slider>
+//     </div>
+//   );
+// }
 
-      {/* <div>
-        <img src="./images/2.jpg" alt="photo" />
+import React, { Component } from "react";
+
+export default class SliderPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nav1: null,
+      nav2: null,
+      array: new Array(70).fill(),
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      nav1: this.slider1,
+      nav2: this.slider2,
+    });
+  }
+  render() {
+    return (
+      <div className={classes.sliderWrapper}>
+        <Slider
+          asNavFor={this.state.nav2}
+          ref={(slider) => (this.slider1 = slider)}
+        >
+          {this.state.array.map((item, index) => {
+            return <img src={`./images/${index + 1}.jpg`} alt="photo" />;
+          })}
+        </Slider>
+
+        <Slider
+          asNavFor={this.state.nav1}
+          ref={(slider) => (this.slider2 = slider)}
+          slidesToShow={3}
+          swipeToSlide={true}
+          focusOnSelect={true}
+        >
+          {this.state.array.map((item, index) => {
+            return <img src={`./images/${index + 1}.jpg`} alt="photo" />;
+          })}
+        </Slider>
       </div>
-      <div>
-        <img src="./images/3.jpg" alt="photo" />
-      </div>
-      <div>
-        <img src="./images/4.jpg" alt="photo" />
-      </div>
-      <div>
-        <img src="./images/5.jpg" alt="photo" />
-      </div>
-      <div>
-        <img src="./images/6.jpg" alt="photo" />
-      </div> */}
-    </Slider>
-  );
+    );
+  }
 }

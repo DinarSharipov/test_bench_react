@@ -1,0 +1,10 @@
+.sliderWrapper img {
+  border-radius: 50px;
+}
+
+.sliderWrapper .slick-initialized .slick-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=SliderPage.module.css.map */

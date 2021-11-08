@@ -1,6 +1,17 @@
-.slider {
-  width: 600px;
+// .slider {
+//   width: 200px;
+
+//   img {
+//     height: 200px;
+//     border-radius: 25px;
+//   }
+// }
+
+.sliderWrapper {
   img {
-    height: 300px;
+    border-radius: 50px;
+  }
+  .slick-initialized .slick-slide {
+    display: flex;
   }
 }
